@@ -67,4 +67,4 @@ jobs:
       - name: Build Docker image
         run: docker build -t $REPO/${{ steps.prep.outputs.artifact }}:latest -t $REPO/${{ steps.prep.outputs.artifact }}:${{ steps.prep.outputs.version }} .
       - name: Publish Docker image
-        run: docker push $REPO
+        run: docker push $REPO/${{ steps.prep.outputs.artifact }}
