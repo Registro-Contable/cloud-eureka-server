@@ -10,7 +10,7 @@
 
 	<groupId>com.victorlh.registrocontable</groupId>
 	<artifactId>cloud-eureka-server</artifactId>
-	<version>0.1.2-SNAPSHOT</version>
+	<version>0.1.2</version>
 
 	<name>registrocontable-cloud-eureka-server</name>
 	<description>Servidor de registro de servicios</description>
