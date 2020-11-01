@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  cloud-config-server:
+    image: "registro-contable/cloud-eureka-server:${TAG}"
+    ports:
+      - "8761:8761"
+    container_name: cloud-eureka-server
+    environment:
+      - spring.cloud.config.profile=development
+      - spring.cloud.config.uri=http://192.168.1.5:8888
