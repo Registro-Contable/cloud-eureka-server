@@ -1,5 +1,9 @@
 version: "3"
 
+networks:
+  registrocontable-net:
+    external: true
+
 services:
   cloud-config-server:
     image: "registro-contable/cloud-eureka-server:${TAG}"
