@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  cloud-config-server:
+  cloud-eureka-server:
     image: "registro-contable/cloud-eureka-server:${TAG}"
     ports:
       - "8761:8761"
