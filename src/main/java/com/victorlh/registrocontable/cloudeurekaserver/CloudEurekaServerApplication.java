@@ -6,12 +6,10 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
 @EnableEurekaServer
-public class RegistrocontableCloudEurekaServerApplication {
+public class CloudEurekaServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RegistrocontableCloudEurekaServerApplication.class, args);
+		SpringApplication.run(CloudEurekaServerApplication.class, args);
 	}
 
 }
-
-// TODO - Cambiar direccion ip de boostrap.yml
