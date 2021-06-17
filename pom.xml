@@ -22,7 +22,7 @@
 		<java.version>14</java.version>
 		<spring-cloud.version>2020.0.2</spring-cloud.version>
 		<git.repository>Registro-Contable/cloud-eureka-server</git.repository>
-		<docker.repository>eu.gcr.io/registro-contable-cloud/com.victorlh.registrocontable/cloud-config-server</docker.repository>
+		<docker.repository>eu.gcr.io/registro-contable-cloud/com.victorlh.registrocontable/cloud-eureka-server</docker.repository>
 	</properties>
 
 	<dependencies>
