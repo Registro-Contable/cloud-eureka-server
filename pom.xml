@@ -13,7 +13,7 @@
 
 	<groupId>com.victorlh.registrocontable</groupId>
 	<artifactId>cloud-eureka-server</artifactId>
-	<version>0.1.4-SNAPSHOT</version>
+	<version>0.2.0-SNAPSHOT</version>
 
 	<name>registrocontable-cloud-eureka-server</name>
 	<description>Servidor de registro de servicios</description>
@@ -22,6 +22,7 @@
 		<java.version>14</java.version>
 		<spring-cloud.version>2020.0.2</spring-cloud.version>
 		<git.repository>Registro-Contable/cloud-eureka-server</git.repository>
+		<docker.repository>eu.gcr.io/registro-contable-cloud/com.victorlh.registrocontable/cloud-config-server</docker.repository>
 	</properties>
 
 	<dependencies>
@@ -79,7 +80,27 @@
 					<tagNameFormat>v@{project.version}</tagNameFormat>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<from>
+						<image>adoptopenjdk:14-jre</image>
+					</from>
+					<to>
+						<image>${docker.repository}:${project.version}</image>
+					</to>
+				</configuration>
+			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>com.google.cloud.artifactregistry</groupId>
+				<artifactId>artifactregistry-maven-wagon</artifactId>
+				<version>2.1.1</version>
+			</extension>
+		</extensions>
 	</build>
 
 	<scm>
@@ -90,13 +111,26 @@
 
 	<distributionManagement>
 		<snapshotRepository>
-			<id>nexus</id>
-			<url>http://192.168.1.5:8081/repository/registro-contable-snapshot/</url>
+			<id>artifact-registry</id>
+			<url>artifactregistry://europe-west2-maven.pkg.dev/registro-contable-cloud/registro-contable-ms</url>
 		</snapshotRepository>
 		<repository>
-			<id>nexus</id>
-			<url>http://192.168.1.5:8081/repository/registro-contable-releases/</url>
+			<id>artifact-registry</id>
+			<url>artifactregistry://europe-west2-maven.pkg.dev/registro-contable-cloud/registro-contable-ms</url>
 		</repository>
 	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>artifact-registry</id>
+			<url>artifactregistry://europe-west2-maven.pkg.dev/registro-contable-cloud/registro-contable-ms</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
